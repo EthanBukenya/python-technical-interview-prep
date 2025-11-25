@@ -45,6 +45,7 @@
 # 3. Converting a List into a String or tuple or set
 
 from collections import OrderedDict
+import heapq
 
 
 def length_of_longest_substring(s: str) -> int:
@@ -58,8 +59,15 @@ def length_of_longest_substring(s: str) -> int:
         max_length = max(max_length, i - start + 1)
     return max_length
 
+# 10. Find the Kth Largest Element in an Array
+
+
+def find_kth_largest(nums: list, k: int) -> int:
+    return heapq.nlargest(k, nums)[-1]
+
 
 if __name__ == '__main__':
+    nums = [2, 4, 9, 0, 3, 22, 1, 20, 12]
 
     days = ['S', 'M', 'T', 'W', 'Th', 'F', 'St']
     # list_to_string = ' '.join(day)
@@ -78,3 +86,5 @@ if __name__ == '__main__':
     print(y)
 
     print(length_of_longest_substring('abcdcdcbbc'))
+
+    print(find_kth_largest(nums, 2))
