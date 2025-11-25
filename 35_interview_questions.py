@@ -31,3 +31,50 @@
 
 # 1. Debugging a Python Program
 # python -m pdb script_name.py
+
+# 2. yeild keyword
+# def days(index):
+#     day = ['S', 'M', 'T', 'W', 'Th', 'F', 'St']
+#     yield day[index]
+#     yield day[index+1]
+
+
+# res = days(0)
+# print(next(res), next(res))
+
+# 3. Converting a List into a String or tuple or set
+
+from collections import OrderedDict
+
+
+def length_of_longest_substring(s: str) -> int:
+    char_index_map = {}
+    start = max_length = 0
+
+    for i, char in enumerate(s):
+        if char in char_index_map and char_index_map[char] >= start:
+            start = char_index_map[char] + 1
+        char_index_map[char] = i
+        max_length = max(max_length, i - start + 1)
+    return max_length
+
+
+if __name__ == '__main__':
+
+    days = ['S', 'M', 'T', 'W', 'Th', 'F', 'St']
+    # list_to_string = ' '.join(day)
+    # list_to_string = str(day)
+    list_to_tuple = tuple(days)
+    list_to_set = set(days)
+
+    # print(list_to_string)
+    # print(list_to_tuple)
+    # print(list_to_set)
+
+    # print(days.count('M'))
+    y = set(days)
+
+    print([[x, days.count(x)] for x in y])
+    print(y)
+
+    print(length_of_longest_substring('abcdcdcbbc'))
