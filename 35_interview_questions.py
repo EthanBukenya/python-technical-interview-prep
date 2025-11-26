@@ -65,6 +65,24 @@ def length_of_longest_substring(s: str) -> int:
 def find_kth_largest(nums: list, k: int) -> int:
     return heapq.nlargest(k, nums)[-1]
 
+# detecting a cycle in a Linked List
+
+
+class ListNode:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+
+def has_cycle(head: ListNode) -> bool:
+    slow = fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True
+    return False
+
 
 if __name__ == '__main__':
     nums = [2, 4, 9, 0, 3, 22, 1, 20, 12]
@@ -88,3 +106,12 @@ if __name__ == '__main__':
     print(length_of_longest_substring('abcdcdcbbc'))
 
     print(find_kth_largest(nums, 2))
+
+    node1 = ListNode(1)
+    node2 = ListNode(2)
+    node3 = ListNode(3)
+    node1.next = node2
+    node2.next = node3
+    node3.next = node1  # cycle here
+
+    print(has_cycle(node1))
