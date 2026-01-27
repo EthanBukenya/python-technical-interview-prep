@@ -15,6 +15,9 @@
 # import heapq
 # from collections import OrderedDict
 
+import heapq
+
+
 def two_sum(nums, target):
     num_map = {}
     for i, num in enumerate(nums):
@@ -35,23 +38,22 @@ def two_sum(nums, target):
 #     target = 21
 #     print(two_sum(nums, target))
 
+    # 1. Debugging a Python Program
+    # python -m pdb script_name.py
 
-# 1. Debugging a Python Program
-# python -m pdb script_name.py
+    # 2. yeild keyword
+    # def days(index):
+    #     day = ['S', 'M', 'T', 'W', 'Th', 'F', 'St']
+    #     yield day[index]
+    #     yield day[index+1]
 
-# 2. yeild keyword
-# def days(index):
-#     day = ['S', 'M', 'T', 'W', 'Th', 'F', 'St']
-#     yield day[index]
-#     yield day[index+1]
+    # res = days(0)
+    # print(next(res), next(res))
 
+    # 3. Converting a List into a String or tuple or set
 
-# res = days(0)
-# print(next(res), next(res))
+    # length of the longest substring
 
-# 3. Converting a List into a String or tuple or set
-
-# length of the longest substring
 
 def length_of_longest_substring(s: str) -> int:
     char_index_map = {}
